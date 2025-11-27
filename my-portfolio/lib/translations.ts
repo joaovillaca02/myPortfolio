@@ -25,27 +25,61 @@ export const translations = {
                 {
                     title: 'Bachelor in Computer Science',
                     institution: 'USP São Carlos - ICMC',
-                    date: '2018',
-                    description: 'Focused on cybersecurity and distributed systems.'
+                    date: 'Apr/2025',
+                    description: 'Emphasis on Distributed Systems and Software Engineering.'
+                },
+                {
+                    title: 'MBA in Economics, Investments and Banking',
+                    institution: 'USP/Esalq',
+                    date: 'May/2027',
+                    description: 'Postgraduate degree in economics, financial markets and investment banking.'
                 }
             ],
             experience: [
                 {
-                    title: 'Software Engineer',
-                    company: 'Tech Company',
-                    startDate: 'Apr/2024',
-                    endDate: 'May/2025',
-                    description: 'Working on fintech solutions and backend systems.'
+                    title: 'Fullstack Developer',
+                    company: 'Black Belt Finance',
+                    startDate: 'Oct/2024',
+                    endDate: 'Dec/2025',
+                    description: 'Development of an investment portfolio management app. Worked with pricing calculations, Open Finance integration and BTG Developer Partner API, report generation, financial reconciliation and risk analysis calculations.'
+                },
+                {
+                    title: 'Jr. Software Development Analyst',
+                    company: 'Luz Soluções Financeiras',
+                    startDate: 'Oct/2023',
+                    endDate: 'Apr/2024',
+                    description: 'Development of technology for banking regulatory compliance based on the Central Bank\'s Basel III rules. Also participated in the formulation of a scalable core banking system, with modeling of financial flows, accounting and banking ledger.'
+                },
+                {
+                    title: 'Backend Developer',
+                    company: 'Finscool LTDA.',
+                    startDate: 'Nov/2022',
+                    endDate: 'Jun/2023',
+                    description: 'Development of financial education course platforms, corporate training and gamification of teaching for high school. Developed flows based on payment events and automation of mass registrations using spreadsheets.'
                 }
             ],
             certificates: [
                 {
                     title: 'AWS Cloud Practitioner',
                     issuer: 'Amazon Web Services',
-                    date: 'ago/2023 - ago/2026',
-                    description: 'Padrões de arquitetura, melhores práticas ee ferramentas para soluções em nuvem, focado no ecossistema AWS.',
-                    link: '#',
+                    date: 'Aug/2023 - Aug/2026',
+                    description: 'Architecture patterns, best practices and tools for cloud solutions, focused on the AWS ecosystem.',
+                    link: 'https://www.credly.com/badges/f75b31b7-4e20-4d41-9368-f495c09c0650/public_url',
                     image: '/aws-certified-cloud-practitioner.png'
+                },
+                {
+                    title: 'Special Studies: Advanced and High-Performance Computing Systems',
+                    issuer: 'USP/ICMC',
+                    date: 'Nov/2025',
+                    description: 'Specialization in distributed systems, cloud and software architecture.',
+                    link: 'https://validador.icmc.usp.br/?codigo_validacao=RBF7-GFMB-FYSQ-P4MT'
+                },
+                {
+                    title: 'EF SET English certificate C2 proficient 73/100',
+                    issuer: 'EF SET',
+                    date: 'May/2024',
+                    description: 'C2 English proficiency certificate, with reading, listening and writing.',
+                    link: 'https://cert.efset.org/nNeQak'
                 }
             ]
         }
@@ -93,11 +127,11 @@ export const translations = {
                     description: 'Desenvolvimento de um app de gestão de portfolio de investimentos. Trabalhei com cálculos de precificação, integração com Open Finance e API BTG Developer Partner, geração de relatórios, conciliação financeira e cálculos de análise de riscos.'
                 },
                 {
-                    title: 'Analista de Dsenvolvimento de Software Jr.',
+                    title: 'Analista de Desenvolvimento de Software Jr.',
                     company: 'Luz Soluções Financeiras',
                     startDate: 'out/2023',
                     endDate: 'abr/2024',
-                    description: 'Desenvolvimento de tecnologia para compliance regulatório bancário com abse nas regras de Basileia III do Banco Central. Também participeei da formulação de um sistema escalável de core banking, com modelagem de fluxos financeiros, contábeis e registro bancário (ledger).'
+                    description: 'Desenvolvimento de tecnologia para compliance regulatório bancário com base nas regras de Basileia III do Banco Central. Também participei da formulação de um sistema escalável de core banking, com modelagem de fluxos financeiros, contábeis e registro bancário (ledger).'
                 },
                 {
                     title: 'Backend Developer',
