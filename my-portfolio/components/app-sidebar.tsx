@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, User, Briefcase, Mail, Cable } from "lucide-react"
+import { Home, User, Briefcase, Mail, Cable, X } from "lucide-react"
 import {
     Sidebar,
     SidebarContent,
@@ -10,6 +10,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { useLanguage } from "@/components/language-provider"
 
@@ -54,7 +55,12 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>{t('portfolio')}</SidebarGroupLabel>
+                    <SidebarGroupLabel className="flex items-center justify-between">
+                        {t('portfolio')}
+                        <SidebarTrigger className="h-6 w-6">
+                            <X className="h-4 w-4" />
+                        </SidebarTrigger>
+                    </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (

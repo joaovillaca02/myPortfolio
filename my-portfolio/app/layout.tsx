@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ModeToggle } from "@/components/mode-toggle";
 import { LanguageProvider } from "@/components/language-provider";
 import { LanguageToggle } from "@/components/language-toggle";
+import { ConditionalSidebarTrigger } from "@/components/ui/sidebar-trigger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,9 +44,9 @@ export default function RootLayout({
             <SidebarProvider>
               <AppSidebar />
               <main className="w-full">
-                <div className="flex items-center justify-between p-4 border-b">
-                  <SidebarTrigger />
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center p-4 border-b">
+                  <ConditionalSidebarTrigger />
+                  <div className="flex items-center gap-2 ml-auto">
                     <LanguageToggle />
                     <ModeToggle />
                   </div>
