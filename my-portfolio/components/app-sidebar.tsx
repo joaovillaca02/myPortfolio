@@ -26,22 +26,10 @@ export function AppSidebar() {
             icon: Home,
         },
         {
-            id: 'about',
-            title: t('about'),
-            url: "#about",
-            icon: User,
-        },
-        {
             id: 'curriculum',
             title: t('curriculum'),
             url: "#curriculum",
             icon: Briefcase,
-        },
-        {
-            id: 'technologies',
-            title: t('technologies'),
-            url: "#technologies",
-            icon: Cable,
         },
         {
             id: 'contact',

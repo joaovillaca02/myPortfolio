@@ -2,12 +2,8 @@
 
 import { useLanguage } from "@/components/language-provider"
 import Prism from "@/components/prism-effect"
-import ElectricBorder from "@/components/electric-border"
-import Lightning from "@/components/lightning-effect"
 import Squares from "@/components/squares-effect"
-import Galaxy from "@/components/galaxy-effect"
 import { CurriculumSection } from "@/components/curriculum-section"
-import LogoLoop from "@/components/logo-loop"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import Image from "next/image"
@@ -18,54 +14,30 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useForm, ValidationError } from '@formspree/react'
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPython, SiJavascript, SiDotnet, SiRabbitmq, SiAwslambda, SiSpringboot, SiAmazonwebservices, SiSelenium, SiGo, SiGithubactions, SiFirebase, SiRedis, SiC, SiCplusplus, SiFlask } from 'react-icons/si'
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPython, SiDotnet, SiRabbitmq, SiAwslambda, SiAmazonwebservices, SiSelenium, SiGo, SiFirebase, SiRedis, SiC, SiCplusplus, SiFlask } from 'react-icons/si'
 import { FaGithub, FaJava, FaLinkedin } from 'react-icons/fa'
-
-const techLogosTop = [
-  { node: <SiReact className="text-[#61DAFB]" />, title: "React", href: "https://react.dev" },
-  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-  { node: <SiTypescript className="text-[#3178C6]" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-  { node: <SiTailwindcss className="text-[#06B6D4]" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-  { node: <SiNodedotjs className="text-[#339933]" />, title: "Node.js", href: "https://nodejs.org" },
-  { node: <SiPostgresql className="text-[#4169E1]" />, title: "PostgreSQL", href: "https://www.postgresql.org" },
-  { node: <SiDocker className="text-[#2496ED]" />, title: "Docker", href: "https://www.docker.com" },
-  { node: <SiGit className="text-[#F05032]" />, title: "Git", href: "https://git-scm.com" },
-  { node: <SiJavascript className="text-[#F7DF1E]" />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { node: <SiPython className="text-[#3776AB]" />, title: "Python", href: "https://www.python.org" },
-];
-
-const techLogosBottom = [
-  { node: <SiDotnet className="text-[#61DAFB]" />, title: "DotNet", href: "https://dotnet.microsoft.com" },
-  { node: <SiRabbitmq className="text-[#61DAFB]" />, title: "RabbitMQ", href: "https://www.rabbitmq.com" },
-  { node: <SiAwslambda className="text-[#3178C6]" />, title: "AWS Lambda", href: "https://aws.amazon.com/lambda/" },
-  { node: <SiSpringboot className="text-[#06B6D4]" />, title: "Spring Boot", href: "https://spring.io/projects/spring-boot" },
-  { node: <SiAmazonwebservices className="text-[#339933]" />, title: "AWS", href: "https://aws.amazon.com" },
-  { node: <SiGithubactions className="text-[#4169E1]" />, title: "Github Actions", href: "https://github.com/features/actions" },
-  { node: <SiSelenium className="text-[#2496ED]" />, title: "Selenium", href: "https://www.selenium.dev" },
-  { node: <SiGo className="text-[#F05032]" />, title: "Go", href: "https://golang.org" },
-  { node: <SiFirebase className="text-[#F7DF1E]" />, title: "Firebase", href: "https://firebase.google.com" },
-  { node: <SiRedis className="text-[#3776AB]" />, title: "Redis", href: "https://redis.io" },
-];
 
 const technologyBadges = [
   { name: 'TypeScript', color: '#3178C6', icon: SiTypescript },
   { name: 'Node.js', color: '#339933', icon: SiNodedotjs },
-  { name: 'NextJS', color: '#E5E5E5', icon: SiNextdotjs },
-  { name: 'C', color: '#A8B9CC', icon: SiC },
+  { name: 'React', color: '#61DAFB', icon: SiReact },
+  { name: 'Next.js', color: '#E5E5E5', icon: SiNextdotjs },
+  { name: 'TailwindCSS', color: '#06B6D4', icon: SiTailwindcss },
+  { name: 'AWS', color: '#FF9900', icon: SiAmazonwebservices },
+  { name: 'AWS Lambda', color: '#FF9900', icon: SiAwslambda },
+  { name: 'Docker', color: '#2496ED', icon: SiDocker },
+  { name: 'PostgreSQL', color: '#4169E1', icon: SiPostgresql },
+  { name: 'Git', color: '#F05032', icon: SiGit },
+  { name: 'Firebase', color: '#FFCA28', icon: SiFirebase },
   { name: 'C++', color: '#00599C', icon: SiCplusplus },
   { name: 'Java', color: '#ED8B00', icon: FaJava },
-  { name: 'AWS', color: '#FF9900', icon: SiAmazonwebservices },
-  { name: 'PostgreSQL', color: '#4169E1', icon: SiPostgresql },
   { name: 'RabbitMQ', color: '#FF6600', icon: SiRabbitmq },
-  { name: 'TailwindCSS', color: '#06B6D4', icon: SiTailwindcss },
   { name: '.NET', color: '#512BD4', icon: SiDotnet },
   { name: 'Python', color: '#3776AB', icon: SiPython },
   { name: 'Flask', color: '#E5E5E5', icon: SiFlask },
-  { name: 'Git', color: '#F05032', icon: SiGit },
-  { name: 'Firebase', color: '#FFCA28', icon: SiFirebase },
+  { name: 'Go', color: '#F7DF1E', icon: SiGo },
   { name: 'Redis', color: '#DC382D', icon: SiRedis },
-  { name: 'AWS Lambda', color: '#FF9900', icon: SiAwslambda },
-  { name: 'Docker', color: '#2496ED', icon: SiDocker },
+  { name: 'Selenium', color: '#43B02A', icon: SiSelenium },
 ];
 
 function ContactForm() {
@@ -245,33 +217,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="relative min-h-screen flex items-center justify-center bg-muted/30 p-8 backdrop-blur-sm overflow-hidden">
-        <div className="absolute inset-0 w-full h-full -z-10">
-          <Lightning
-            hue={220}
-            xOffset={-1.5}
-            speed={0.5}
-            intensity={0.5}
-            size={0.5}
-            isDark={resolvedTheme === 'dark'}
-          />
-        </div>
-        <ElectricBorder
-          color={resolvedTheme === 'dark' ? "#7df9ff" : "#0066cc"}
-          speed={1}
-          chaos={1}
-          thickness={2}
-          style={{ borderRadius: 16 }}
-        >
-          <div className="max-w-2xl p-8 bg-background/80 backdrop-blur-md rounded-2xl">
-            <h2 className="text-3xl font-bold mb-6">{t('aboutMe')}</h2>
-            <p className="text-lg text-muted-foreground whitespace-pre-line text-justify">
-              {t('aboutText')}
-            </p>
-          </div>
-        </ElectricBorder>
-      </section>
-
       <section id="curriculum" className="relative min-h-screen flex items-center justify-center p-8 overflow-hidden">
         <div className="absolute inset-0 w-full h-full -z-10">
           <Squares
@@ -306,25 +251,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="technologies" className="relative min-h-screen flex items-center justify-center bg-muted/30 p-8 backdrop-blur-sm overflow-hidden">
-        <div className="absolute top-8 left-0 right-0 h-[clamp(80px,10vh,120px)] -z-10 opacity-20">
-          <LogoLoop
-            logos={techLogosTop}
-            speed={120}
-            direction="left"
-            logoHeight={48}
-            gap={40}
-            hoverSpeed={0}
-            scaleOnHover
-            fadeOut
-            fadeOutColor={resolvedTheme === 'dark' ? '#0b0b0b' : '#ffffff'}
-            ariaLabel="Technology stack"
-          />
-        </div>
-        <div className="max-w-4xl w-full">
+          <div className="max-w-4xl w-full mt-12">
           <h2 className="text-3xl font-bold mb-6 text-center">{t('technologies')}</h2>
           <div className="p-6 border rounded-lg shadow-sm bg-background/80 backdrop-blur-sm">
             <div className="flex flex-wrap gap-3 justify-center">
@@ -349,35 +276,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-8 left-0 right-0 h-[clamp(80px,10vh,120px)] opacity-20 -z-10">
-          <LogoLoop
-            logos={techLogosBottom}
-            speed={120}
-            direction="right"
-            logoHeight={48}
-            gap={40}
-            hoverSpeed={0}
-            scaleOnHover
-            fadeOut
-            fadeOutColor={resolvedTheme === 'dark' ? '#0b0b0b' : '#ffffff'}
-            ariaLabel="Technology stack"
-          />
         </div>
       </section>
 
-      <section id="contact" className="relative min-h-screen flex items-center justify-center p-8 overflow-hidden">
-        <div className="absolute inset-0 left-0 right-0 w-full h-full -z-10 pointer-events-none">
-          <div className="w-full h-full">
-            <Galaxy
-              density={1.5}
-              glowIntensity={undefined}
-              saturation={undefined}
-              hueShift={undefined}
-              isDark={resolvedTheme === 'dark'}
-              transparent={true}
-            />
-          </div>
-        </div>
+      <section id="contact" className="relative py-16 flex items-center justify-center p-8 overflow-hidden">
         <div className="max-w-2xl w-full relative z-10 pointer-events-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">{t('contact')}</h2>
